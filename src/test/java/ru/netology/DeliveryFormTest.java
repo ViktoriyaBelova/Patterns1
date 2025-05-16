@@ -1,4 +1,4 @@
-package ru.netology;
+package ru.netology.delivery.test;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
@@ -7,12 +7,16 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.Keys;
 import ru.netology.delivery.data.DataGenerator;
+import ru.netology.delivery.data.DataGenerator.Registration;
+
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
-import static org.openqa.selenium.Keys.HOME;
+import static org.openqa.selenium.Keys.*;
 
 public class DeliveryFormTest {
 
@@ -35,7 +39,6 @@ public class DeliveryFormTest {
     @DisplayName("Should Register Delivery")
     void shouldRegisterDelivery() {
 
-        ru.netology.DataGenerator DataGenerator;
         var validUser = DataGenerator.Registration.generateUser("ru");
         var firstDeliveryDate = DataGenerator.generateDate(4);
         var secondDeliveryDate = DataGenerator.generateDate(7);
